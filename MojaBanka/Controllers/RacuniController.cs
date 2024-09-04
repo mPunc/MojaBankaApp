@@ -17,6 +17,7 @@ namespace MojaBanka.Controllers
         // GET: Racuni
         public ActionResult Index()
         {
+            ViewBag.Klijenti = db.Klijenti.ToList();
             return View(db.Racuni.ToList());
         }
 
