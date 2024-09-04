@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MojaBanka.Models.Racun>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Stanje_racun)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_klijent)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stanje_racun)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_klijent)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_racun }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_racun }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_racun })
+        </td>
+    </tr>
+}
+
+</table>

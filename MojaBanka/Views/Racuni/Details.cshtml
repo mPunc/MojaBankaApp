@@ -1,0 +1,35 @@
+﻿@model MojaBanka.Models.Racun
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Racun</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Stanje_racun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stanje_racun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_klijent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_racun }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

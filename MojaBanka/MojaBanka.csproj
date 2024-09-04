@@ -178,6 +178,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KlijentiController.cs" />
+    <Compile Include="Controllers\RacuniController.cs" />
+    <Compile Include="Controllers\TransakcijeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,6 +245,16 @@
     <Content Include="Views\Klijenti\Details.cshtml" />
     <Content Include="Views\Klijenti\Edit.cshtml" />
     <Content Include="Views\Klijenti\Index.cshtml" />
+    <Content Include="Views\Racuni\Create.cshtml" />
+    <Content Include="Views\Racuni\Delete.cshtml" />
+    <Content Include="Views\Racuni\Details.cshtml" />
+    <Content Include="Views\Racuni\Edit.cshtml" />
+    <Content Include="Views\Racuni\Index.cshtml" />
+    <Content Include="Views\Transakcije\Create.cshtml" />
+    <Content Include="Views\Transakcije\Delete.cshtml" />
+    <Content Include="Views\Transakcije\Details.cshtml" />
+    <Content Include="Views\Transakcije\Edit.cshtml" />
+    <Content Include="Views\Transakcije\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
