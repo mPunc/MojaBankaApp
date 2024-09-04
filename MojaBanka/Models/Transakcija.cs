@@ -18,6 +18,7 @@ namespace MojaBanka.Models
 
         [Required(ErrorMessage = "{0} je obavezan podatak")]
         [Display(Name = "Iznos transakcije")]
+        [DisplayFormat(DataFormatString = "{0} €")]
         [Column("iznos")]
         public double Iznos_transakcije { get; set; }
 

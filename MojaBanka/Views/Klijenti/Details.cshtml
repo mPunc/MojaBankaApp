@@ -1,5 +1,5 @@
 ﻿@model MojaBanka.Models.Klijent
-
+@using MojaBanka.Models
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,6 +11,14 @@
     <h4>Klijent</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_klijent)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Ime_klijent)
         </dt>
@@ -61,6 +69,42 @@
 
     </dl>
 </div>
+@{
+    bool prvi_racun = true;
+}
+<table class="table">
+    @foreach (Racun rac in ViewBag.racuni)
+    {
+        if (prvi_racun)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(x => rac.Stanje_racun)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(x => rac.Id_racun)
+                </th>
+                <th></th>
+            </tr>
+            prvi_racun = false;
+        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => rac.Stanje_racun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => rac.Id_racun)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Racuni", new { id = rac.Id_racun }, null) |
+                @Html.ActionLink("Details", "Details", "Racuni", new { id = rac.Id_racun }, null) |
+                @Html.ActionLink("Delete", "Delete", "Racuni", new { id = rac.Id_racun }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id_klijent }) |
     @Html.ActionLink("Back to List", "Index")

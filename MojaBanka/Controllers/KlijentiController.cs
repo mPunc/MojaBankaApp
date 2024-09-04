@@ -32,6 +32,19 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+
+            List<Racun> klijent_racuni = new List<Racun>();
+
+            foreach(Racun rac in db.Racuni)
+            {
+                if(rac.Id_klijent == id)
+                {
+                    klijent_racuni.Add(rac);
+                }
+            }
+
+            ViewBag.Racuni = klijent_racuni;
+            
             return View(klijent);
         }
 
