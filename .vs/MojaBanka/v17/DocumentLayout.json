@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\models\\racun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\models\\racun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\models\\transakcija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\models\\transakcija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\models\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\models\\klijent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,17 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Klijent.cs",
+              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\Klijent.cs",
+              "RelativeDocumentMoniker": "MojaBanka\\Models\\Klijent.cs",
+              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\Klijent.cs",
+              "RelativeToolTip": "MojaBanka\\Models\\Klijent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T00:28:34.618Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Racun.cs",
+              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\Racun.cs",
+              "RelativeDocumentMoniker": "MojaBanka\\Models\\Racun.cs",
+              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\Racun.cs",
+              "RelativeToolTip": "MojaBanka\\Models\\Racun.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T00:37:12.27Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Transakcija.cs",
+              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\Transakcija.cs",
+              "RelativeDocumentMoniker": "MojaBanka\\Models\\Transakcija.cs",
+              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\Transakcija.cs",
+              "RelativeToolTip": "MojaBanka\\Models\\Transakcija.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T00:39:51.474Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MyDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\MyDbContext.cs",
               "RelativeDocumentMoniker": "MojaBanka\\Models\\MyDbContext.cs",
               "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\MyDbContext.cs",
               "RelativeToolTip": "MojaBanka\\Models\\MyDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-03T23:06:21.945Z",
               "EditorCaption": ""
