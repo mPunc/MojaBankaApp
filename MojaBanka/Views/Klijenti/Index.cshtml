@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MojaBanka.Models.Klijent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime_klijent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prezime_klijent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresa_klijent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oib_klijent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_klijent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum_klijent)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ime_klijent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prezime_klijent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adresa_klijent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oib_klijent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_klijent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum_klijent)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_klijent }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_klijent }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_klijent })
+        </td>
+    </tr>
+}
+
+</table>

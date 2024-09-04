@@ -1,0 +1,67 @@
+﻿@model MojaBanka.Models.Klijent
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Klijent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresa_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresa_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oib_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oib_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum_klijent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_klijent }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
