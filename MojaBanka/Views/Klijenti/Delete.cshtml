@@ -1,17 +1,27 @@
 ﻿@model MojaBanka.Models.Klijent
+@using MojaBanka.Models
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Klijenti";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    bool prvi_racun = true;
 }
 
-<h2>Delete</h2>
+<h2>Izbriši klijenta @Html.DisplayFor(model => model.Ime_klijent) @Html.DisplayFor(model => model.Prezime_klijent)</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Jeste li sigurni da želite izbrisati podatke ovog klijenta i sve vezane račune?</h3>
 <div>
-    <h4>Klijent</h4>
+    <h4>Podaci</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_klijent)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Ime_klijent)
         </dt>
@@ -62,12 +72,41 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    <table class="table">
+        @foreach (Racun rac in ViewBag.racuni)
+        {
+            if (prvi_racun)
+            {
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(x => rac.Id_racun)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(x => rac.Stanje_racun)
+                    </th>
+                    <th></th>
+                </tr>
+                prvi_racun = false;
+            }
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => rac.Id_racun)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => rac.Stanje_racun)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Izbriši" class="btn btn-default" /> |
+            @Html.ActionLink("Natrag na listu", "Index")
         </div>
     }
 </div>

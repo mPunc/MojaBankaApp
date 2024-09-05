@@ -33,16 +33,7 @@ namespace MojaBanka.Controllers
                 return HttpNotFound();
             }
 
-            List<Racun> klijent_racuni = new List<Racun>();
-
-            foreach(Racun rac in db.Racuni)
-            {
-                if(rac.Id_klijent == id)
-                {
-                    klijent_racuni.Add(rac);
-                }
-            }
-
+            List<Racun> klijent_racuni = db.Racuni.Where(x => x.Id_klijent == id).ToList();
             ViewBag.Racuni = klijent_racuni;
             
             return View(klijent);
@@ -61,7 +52,18 @@ namespace MojaBanka.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id_klijent,Ime_klijent,Prezime_klijent,Adresa_klijent,Oib_klijent,Email_klijent,Datum_klijent")] Klijent klijent)
         {
-            if (ModelState.IsValid)
+            bool valid = true;
+            if (db.Klijenti.Any(x => x.Oib_klijent == klijent.Oib_klijent))
+            {
+                ModelState.AddModelError("Oib_klijent", "Klijent s istim OIB-om već postoji u bazi");
+                valid = false;
+            }
+            if (db.Klijenti.Any(x => x.Email_klijent == klijent.Email_klijent))
+            {
+                ModelState.AddModelError("Email_klijent", "Klijent s istom e-mail adresom već postoji u bazi");
+                valid = false;
+            }
+            if (ModelState.IsValid && valid)
             {
                 db.Klijenti.Add(klijent);
                 db.SaveChanges();
@@ -93,7 +95,18 @@ namespace MojaBanka.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id_klijent,Ime_klijent,Prezime_klijent,Adresa_klijent,Oib_klijent,Email_klijent,Datum_klijent")] Klijent klijent)
         {
-            if (ModelState.IsValid)
+            bool valid = true;
+            if (db.Klijenti.Any(x => x.Oib_klijent == klijent.Oib_klijent && x.Id_klijent != klijent.Id_klijent))
+            {
+                ModelState.AddModelError("Oib_klijent", "Klijent s istim OIB-om već postoji u bazi");
+                valid = false;
+            }
+            if (db.Klijenti.Any(x => x.Email_klijent == klijent.Email_klijent && x.Id_klijent != klijent.Id_klijent))
+            {
+                ModelState.AddModelError("Email_klijent", "Klijent s istom e-mail adresom već postoji u bazi");
+                valid = false;
+            }
+            if (ModelState.IsValid && valid)
             {
                 db.Entry(klijent).State = EntityState.Modified;
                 db.SaveChanges();
@@ -114,6 +127,10 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+
+            List<Racun> klijent_racuni = db.Racuni.Where(x => x.Id_klijent == id).ToList();
+            ViewBag.Racuni = klijent_racuni;
+
             return View(klijent);
         }
 

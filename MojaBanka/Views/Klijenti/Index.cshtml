@@ -8,7 +8,7 @@
 <h2>Popis klijenata</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj novog klijenta", "Create")
 </p>
 <table class="table">
     <tr>
@@ -54,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.Datum_klijent)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id_klijent }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id_klijent }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id_klijent })
+            @Html.ActionLink("Ažuriraj", "Edit", new { id=item.Id_klijent }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.Id_klijent }) |
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.Id_klijent })
         </td>
     </tr>
 }
