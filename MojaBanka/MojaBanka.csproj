@@ -186,6 +186,7 @@
     <Compile Include="Models\Klijent.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Racun.cs" />
+    <Compile Include="Models\RacunCreate.cs" />
     <Compile Include="Models\Transakcija.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

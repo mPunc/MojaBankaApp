@@ -51,16 +51,21 @@ namespace MojaBanka.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_racun,Stanje_racun,Id_klijent")] Racun racun)
+        public ActionResult Create([Bind(Include = "Stanje_racun,Oib_klijent")] RacunCreate sent)
         {
             if (ModelState.IsValid)
             {
+                Racun racun = new Racun
+                {
+                    Stanje_racun = sent.Stanje_racun,
+                    Id_klijent = db.Klijenti.FirstOrDefault(x => x.Oib_klijent == sent.Oib_klijent).Id_klijent
+                };
                 db.Racuni.Add(racun);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index");   
             }
 
-            return View(racun);
+            return View(sent);
         }
 
         // GET: Racuni/Edit/5
