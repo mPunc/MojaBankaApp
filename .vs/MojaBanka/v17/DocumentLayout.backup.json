@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\mojabanka\\views\\racuni\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\racuni\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\controllers\\racunicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\controllers\\racunicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\models\\racuncreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\models\\racuncreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\models\\racun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\models\\racun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RacunCreate.cs",
-              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\RacunCreate.cs",
-              "RelativeDocumentMoniker": "MojaBanka\\Models\\RacunCreate.cs",
-              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\RacunCreate.cs",
-              "RelativeToolTip": "MojaBanka\\Models\\RacunCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T15:23:32.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Racun.cs",
-              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\Racun.cs",
-              "RelativeDocumentMoniker": "MojaBanka\\Models\\Racun.cs",
-              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\Racun.cs",
-              "RelativeToolTip": "MojaBanka\\Models\\Racun.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAYwBsAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T15:17:45.227Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "RacuniController.cs",
               "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Controllers\\RacuniController.cs",
               "RelativeDocumentMoniker": "MojaBanka\\Controllers\\RacuniController.cs",
               "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Controllers\\RacuniController.cs",
               "RelativeToolTip": "MojaBanka\\Controllers\\RacuniController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAIA0wDwAAABuAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T11:55:40.635Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Create.cshtml",
-              "RelativeDocumentMoniker": "MojaBanka\\Views\\Racuni\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Create.cshtml",
-              "RelativeToolTip": "MojaBanka\\Views\\Racuni\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-05T11:57:21.68Z",
+              "WhenOpened": "2024-09-05T16:53:59.078Z",
               "EditorCaption": ""
             }
           ]

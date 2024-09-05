@@ -55,14 +55,22 @@ namespace MojaBanka.Controllers
         {
             if (ModelState.IsValid)
             {
-                Racun racun = new Racun
+                if (db.Klijenti.Any(x => x.Oib_klijent == sent.Oib_klijent))
                 {
-                    Stanje_racun = sent.Stanje_racun,
-                    Id_klijent = db.Klijenti.FirstOrDefault(x => x.Oib_klijent == sent.Oib_klijent).Id_klijent
-                };
-                db.Racuni.Add(racun);
-                db.SaveChanges();
-                return RedirectToAction("Index");   
+                    Racun racun = new Racun
+                    {
+                        Stanje_racun = sent.Stanje_racun,
+                        Id_klijent = db.Klijenti.FirstOrDefault(x => x.Oib_klijent == sent.Oib_klijent).Id_klijent
+                    };
+                    db.Racuni.Add(racun);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");   
+                }
+                else
+                {
+                    ModelState.AddModelError("Oib_klijent", "Ovaj OIB ne postoji u zapisima klijenata.");
+                    return View(sent);
+                }
             }
 
             return View(sent);
