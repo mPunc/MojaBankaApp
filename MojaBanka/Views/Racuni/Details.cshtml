@@ -1,8 +1,10 @@
 ﻿@model MojaBanka.Models.Racun
+@using MojaBanka.Models
 
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    Klijent klijent = ViewBag.Klijent;
 }
 
 <h2>Details</h2>
@@ -11,6 +13,14 @@
     <h4>Racun</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Oib_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Oib_klijent)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Stanje_racun)
         </dt>
@@ -25,6 +35,54 @@
 
         <dd>
             @Html.DisplayFor(model => model.Id_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_racun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_racun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Ime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Ime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Prezime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Prezime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Adresa_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Adresa_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Email_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Email_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Datum_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Datum_klijent)
         </dd>
 
     </dl>
