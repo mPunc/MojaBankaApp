@@ -34,8 +34,8 @@ namespace MojaBanka.Controllers
                 return HttpNotFound();
             }
 
-            Klijent kli = db.Klijenti.FirstOrDefault(x => x.Id_klijent == db.Racuni.FirstOrDefault(y => y.Id_racun == id).Id_klijent);
-            ViewBag.Klijent = kli;
+            Klijent povezani_klijent = db.Klijenti.FirstOrDefault(x => x.Id_klijent == db.Racuni.FirstOrDefault(y => y.Id_racun == id).Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
 
             return View(racun);
         }
@@ -51,16 +51,29 @@ namespace MojaBanka.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_racun,Stanje_racun,Id_klijent")] Racun racun)
+        public ActionResult Create([Bind(Include = "Stanje_racun,Oib_klijent")] RacunCreate sent)
         {
             if (ModelState.IsValid)
             {
-                db.Racuni.Add(racun);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (db.Klijenti.Any(x => x.Oib_klijent == sent.Oib_klijent))
+                {
+                    Racun racun = new Racun
+                    {
+                        Stanje_racun = sent.Stanje_racun,
+                        Id_klijent = db.Klijenti.FirstOrDefault(x => x.Oib_klijent == sent.Oib_klijent).Id_klijent
+                    };
+                    db.Racuni.Add(racun);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");   
+                }
+                else
+                {
+                    ModelState.AddModelError("Oib_klijent", "Ovaj OIB ne postoji u zapisima klijenata.");
+                    return View(sent);
+                }
             }
 
-            return View(racun);
+            return View(sent);
         }
 
         // GET: Racuni/Edit/5
@@ -75,6 +88,10 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+
+            Klijent povezani_klijent = db.Klijenti.FirstOrDefault(x => x.Id_klijent == db.Racuni.FirstOrDefault(y => y.Id_racun == id).Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
+
             return View(racun);
         }
 
@@ -106,6 +123,8 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+            Klijent povezani_klijent = db.Klijenti.FirstOrDefault(x => x.Id_klijent == db.Racuni.FirstOrDefault(y => y.Id_racun == id).Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
             return View(racun);
         }
 

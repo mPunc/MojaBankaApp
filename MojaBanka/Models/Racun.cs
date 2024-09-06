@@ -22,7 +22,7 @@ namespace MojaBanka.Models
         [Column("stanje_racun")]
         public double Stanje_racun { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} je obavezan podatak")]
         [Display(Name = "Id klijenta u bazi")]
         [Column("id_klijent")]
         public int Id_klijent { get; set; }

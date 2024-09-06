@@ -33,20 +33,21 @@ namespace MojaBanka.Models
 
         [Required(ErrorMessage = "{0} je obavezan podatak")]
         [Display(Name = "OIB klijenta")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "{0} mora bit duljine 11 znakova")]
         [Column("oib")]
-        //[StringLength(11, MinimumLength = 11, ErrorMessage = "{0} mora bit duljine 11 znakova")]
         public string Oib_klijent { get; set; }
 
         [Required(ErrorMessage = "{0} je obavezan podatak")]
         [Display(Name = "Email klijenta")]
+        [DataType(DataType.EmailAddress)]
         [Column("email")]
         public string Email_klijent { get; set; }
 
         [Required(ErrorMessage = "{0} je obavezan podatak")]
         [Display(Name = "Datum rođenja")]
         [DisplayFormat(DataFormatString ="{0:dd. MM. yyyy}", ApplyFormatInEditMode = true)]
-        [Column("datum")]
         [DataType(DataType.Date)]
+        [Column("datum")]
         public DateTime Datum_klijent { get; set; }
     }
 }

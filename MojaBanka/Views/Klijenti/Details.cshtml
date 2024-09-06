@@ -1,14 +1,15 @@
 ﻿@model MojaBanka.Models.Klijent
 @using MojaBanka.Models
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Klijenti";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    bool prvi_racun = true;
 }
 
-<h2>Details</h2>
+<h2>Klijent @Html.DisplayFor(model => model.Ime_klijent) @Html.DisplayFor(model => model.Prezime_klijent)</h2>
 
 <div>
-    <h4>Klijent</h4>
+    <h4>Podaci</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -69,9 +70,7 @@
 
     </dl>
 </div>
-@{
-    bool prvi_racun = true;
-}
+
 <table class="table">
     @foreach (Racun rac in ViewBag.racuni)
     {
@@ -79,10 +78,10 @@
         {
             <tr>
                 <th>
-                    @Html.DisplayNameFor(x => rac.Stanje_racun)
+                    @Html.DisplayNameFor(x => rac.Id_racun)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(x => rac.Id_racun)
+                    @Html.DisplayNameFor(x => rac.Stanje_racun)
                 </th>
                 <th></th>
             </tr>
@@ -90,15 +89,15 @@
         }
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => rac.Stanje_racun)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => rac.Id_racun)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", "Racuni", new { id = rac.Id_racun }, null) |
-                @Html.ActionLink("Details", "Details", "Racuni", new { id = rac.Id_racun }, null) |
-                @Html.ActionLink("Delete", "Delete", "Racuni", new { id = rac.Id_racun }, null)
+                @Html.DisplayFor(modelItem => rac.Stanje_racun)
+            </td>
+            <td>
+                @Html.ActionLink("Ažuriraj", "Edit", "Racuni", new { id = rac.Id_racun }, null) |
+                @Html.ActionLink("Detalji", "Details", "Racuni", new { id = rac.Id_racun }, null) |
+                @Html.ActionLink("Izbriši", "Delete", "Racuni", new { id = rac.Id_racun }, null)
             </td>
         </tr>
     }
@@ -106,6 +105,6 @@
 </table>
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_klijent }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id_klijent }) |
+    @Html.ActionLink("Natrag na listu", "Index")
 </p>
