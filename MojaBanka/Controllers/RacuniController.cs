@@ -34,8 +34,8 @@ namespace MojaBanka.Controllers
                 return HttpNotFound();
             }
 
-            Klijent kli = db.Klijenti.FirstOrDefault(x => x.Id_klijent == db.Racuni.FirstOrDefault(y => y.Id_racun == id).Id_klijent);
-            ViewBag.Klijent = kli;
+            Klijent povezani_klijent = db.Klijenti.FirstOrDefault(x => x.Id_klijent == db.Racuni.FirstOrDefault(y => y.Id_racun == id).Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
 
             return View(racun);
         }
@@ -88,6 +88,10 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+
+            Klijent povezani_klijent = db.Klijenti.FirstOrDefault(x => x.Id_klijent == db.Racuni.FirstOrDefault(y => y.Id_racun == id).Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
+
             return View(racun);
         }
 
@@ -119,6 +123,8 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+            Klijent povezani_klijent = db.Klijenti.FirstOrDefault(x => x.Id_klijent == db.Racuni.FirstOrDefault(y => y.Id_racun == id).Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
             return View(racun);
         }
 
