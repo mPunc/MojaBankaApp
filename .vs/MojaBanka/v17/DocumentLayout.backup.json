@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\racuni\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\racuni\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\racuni\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\racuni\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\racuni\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\racuni\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\controllers\\racunicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\controllers\\racunicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\racuni\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\racuni\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\racuni\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\racuni\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Delete.cshtml",
+              "RelativeDocumentMoniker": "MojaBanka\\Views\\Racuni\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Delete.cshtml",
+              "RelativeToolTip": "MojaBanka\\Views\\Racuni\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-05T23:00:16.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Edit.cshtml",
+              "RelativeDocumentMoniker": "MojaBanka\\Views\\Racuni\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Edit.cshtml",
+              "RelativeToolTip": "MojaBanka\\Views\\Racuni\\Edit.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-05T23:00:15.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RacuniController.cs",
+              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Controllers\\RacuniController.cs",
+              "RelativeDocumentMoniker": "MojaBanka\\Controllers\\RacuniController.cs",
+              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Controllers\\RacuniController.cs",
+              "RelativeToolTip": "MojaBanka\\Controllers\\RacuniController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T22:58:42.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Create.cshtml",
+              "RelativeDocumentMoniker": "MojaBanka\\Views\\Racuni\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Create.cshtml",
+              "RelativeToolTip": "MojaBanka\\Views\\Racuni\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-05T23:00:14.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Details.cshtml",
+              "RelativeDocumentMoniker": "MojaBanka\\Views\\Racuni\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Details.cshtml",
+              "RelativeToolTip": "MojaBanka\\Views\\Racuni\\Details.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAAAwwEcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-05T23:00:11.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Web.config",
-              "RelativeDocumentMoniker": "MojaBanka\\Web.config",
-              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Web.config",
-              "RelativeToolTip": "MojaBanka\\Web.config",
-              "ViewState": "AgIAACoAAAAAAAAAAAAawEYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-09-03T22:59:22.269Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Index.cshtml",
+              "RelativeDocumentMoniker": "MojaBanka\\Views\\Racuni\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Racuni\\Index.cshtml",
+              "RelativeToolTip": "MojaBanka\\Views\\Racuni\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-05T23:00:08.585Z",
               "EditorCaption": ""
             }
           ]

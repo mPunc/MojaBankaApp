@@ -1,0 +1,86 @@
+﻿@model MojaBanka.Models.Racun
+@using MojaBanka.Models
+
+@{
+    ViewBag.Title = "Računi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Klijent klijent = ViewBag.Klijent;
+}
+
+<h2>Podaci za račun @Html.DisplayFor(model => model.Id_racun)</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => klijent.Ime_klijent) @Html.DisplayFor(model => klijent.Prezime_klijent)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Oib_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Oib_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stanje_racun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stanje_racun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_racun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_racun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Ime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Ime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Prezime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Prezime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Adresa_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Adresa_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Email_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Email_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Datum_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Datum_klijent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Detalji klijenta", "Details", "Klijenti", new { id = klijent.Id_klijent }, null) |
+    @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id_racun }) |
+    @Html.ActionLink("Natrag na listu", "Index")
+</p>

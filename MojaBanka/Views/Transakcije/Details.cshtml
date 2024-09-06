@@ -1,0 +1,35 @@
+﻿@model MojaBanka.Models.Transakcija
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Transakcija</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Iznos_transakcije)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Iznos_transakcije)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_racun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_racun)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_transakcija }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
