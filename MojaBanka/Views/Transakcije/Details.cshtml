@@ -1,15 +1,18 @@
 ﻿@model MojaBanka.Models.Transakcija
+@using MojaBanka.Models
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Transakcije";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    Klijent klijent = ViewBag.Klijent;
+    Racun racun = ViewBag.Racun;
 }
 
-<h2>Details</h2>
+<h2>Detalji</h2>
 
 <div>
-    <h4>Transakcija</h4>
     <hr />
+    <h4>@Html.DisplayNameFor(model => model.Id_transakcija): @Html.DisplayFor(model => model.Id_transakcija)</h4>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Iznos_transakcije)
@@ -27,9 +30,82 @@
             @Html.DisplayFor(model => model.Id_racun)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Datum_transakcije)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datum_transakcije)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis_transakcije)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis_transakcije)
+        </dd>
+    </dl>
+    <hr />
+    <h4>Podaci računa i vlasnika</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => racun.Stanje_racun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => racun.Stanje_racun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Oib_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Oib_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Ime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Ime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Prezime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Prezime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Adresa_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Adresa_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Email_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Email_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Datum_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Datum_klijent)
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_transakcija }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Natrag na listu", "Index")
 </p>

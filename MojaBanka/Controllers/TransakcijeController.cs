@@ -32,6 +32,10 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+            Racun povezani_racun = db.Racuni.Find(transakcija.Id_racun);
+            ViewBag.Racun = povezani_racun;
+            Klijent povezani_klijent = db.Klijenti.Find(povezani_racun.Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
             return View(transakcija);
         }
 
@@ -46,10 +50,11 @@ namespace MojaBanka.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_transakcija,Iznos_transakcije,Id_racun")] Transakcija transakcija)
+        public ActionResult Create([Bind(Include = "Id_transakcija,Iznos_transakcije,Id_racun,Opis_transakcije")] Transakcija transakcija)
         {
             if (ModelState.IsValid)
             {
+                transakcija.Datum_transakcije = DateTime.Now;
                 db.Transakcije.Add(transakcija);
                 db.SaveChanges();
                 return RedirectToAction("Index");
