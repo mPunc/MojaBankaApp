@@ -7,27 +7,11 @@
       "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\controllers\\transakcijecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\transakcije\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\transakcije\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\models\\transakcija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\mojabanka\\models\\transakcija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\models\\transakcija.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\transakcije\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\transakcije\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\transakcije\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\transakcije\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\transakcije\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\transakcije\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|c:\\users\\marko\\documents\\vs stuff\\mojabanka\\mojabanka\\views\\transakcije\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\mojabanka\\views\\transakcije\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4069B691-22C4-4472-B6EA-677CC9C75C63}|MojaBanka\\MojaBanka.csproj|solutionrelative:mojabanka\\views\\transakcije\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -38,37 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Transakcije\\Index.cshtml",
-              "RelativeDocumentMoniker": "MojaBanka\\Views\\Transakcije\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Transakcije\\Index.cshtml",
-              "RelativeToolTip": "MojaBanka\\Views\\Transakcije\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACkAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-06T14:00:02.028Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Transakcije\\Details.cshtml",
-              "RelativeDocumentMoniker": "MojaBanka\\Views\\Transakcije\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Transakcije\\Details.cshtml",
-              "RelativeToolTip": "MojaBanka\\Views\\Transakcije\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-06T14:00:00.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Transakcija.cs",
               "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Models\\Transakcija.cs",
               "RelativeDocumentMoniker": "MojaBanka\\Models\\Transakcija.cs",
@@ -87,40 +45,14 @@
               "RelativeDocumentMoniker": "MojaBanka\\Controllers\\TransakcijeController.cs",
               "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Controllers\\TransakcijeController.cs",
               "RelativeToolTip": "MojaBanka\\Controllers\\TransakcijeController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAAADgAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAAAHgAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-06T13:59:55.626Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Transakcije\\Create.cshtml",
-              "RelativeDocumentMoniker": "MojaBanka\\Views\\Transakcije\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Transakcije\\Create.cshtml",
-              "RelativeToolTip": "MojaBanka\\Views\\Transakcije\\Create.cshtml",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAADIAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-06T13:59:59.356Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Transakcije\\Delete.cshtml",
-              "RelativeDocumentMoniker": "MojaBanka\\Views\\Transakcije\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Transakcije\\Delete.cshtml",
-              "RelativeToolTip": "MojaBanka\\Views\\Transakcije\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-06T14:00:00.053Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\Marko\\Documents\\VS Stuff\\MojaBanka\\MojaBanka\\Views\\Transakcije\\Edit.cshtml",
               "RelativeDocumentMoniker": "MojaBanka\\Views\\Transakcije\\Edit.cshtml",

@@ -9,9 +9,8 @@
 }
 
 <h2>Detalji</h2>
-
+<hr />
 <div>
-    <hr />
     <h4>@Html.DisplayNameFor(model => model.Id_transakcija): @Html.DisplayFor(model => model.Id_transakcija)</h4>
     <dl class="dl-horizontal">
         <dt>
@@ -107,5 +106,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Natrag na listu", "Index")
+    @Html.ActionLink("Natrag na listu", "Index") |
+    @Html.ActionLink("Izbriši", "Delete", new { id = Model.Id_transakcija })
 </p>

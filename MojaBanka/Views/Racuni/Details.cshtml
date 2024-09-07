@@ -5,6 +5,7 @@
     ViewBag.Title = "Računi";
     Layout = "~/Views/Shared/_Layout.cshtml";
     Klijent klijent = ViewBag.Klijent;
+    List<Transakcija> transakcije = ViewBag.Transakcije;
 }
 
 <h2>Podaci za račun @Html.DisplayFor(model => model.Id_racun)</h2>
@@ -84,3 +85,40 @@
     @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id_racun }) |
     @Html.ActionLink("Natrag na listu", "Index")
 </p>
+<hr />
+<h4>Transakcije</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => transakcije.First().Iznos_transakcije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => transakcije.First().Opis_transakcije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => transakcije.First().Datum_transakcije)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in transakcije)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iznos_transakcije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis_transakcije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datum_transakcije)
+            </td>
+            <td>
+                @Html.ActionLink("Detalji", "Details", "Transakcije", new { id = item.Id_transakcija }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+

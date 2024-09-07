@@ -54,10 +54,19 @@ namespace MojaBanka.Controllers
         {
             if (ModelState.IsValid)
             {
-                transakcija.Datum_transakcije = DateTime.Now;
-                db.Transakcije.Add(transakcija);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (db.Racuni.Any(x => x.Id_racun == transakcija.Id_racun))
+                {
+                    transakcija.Datum_transakcije = DateTime.Now;
+                    db.Racuni.Find(transakcija.Id_racun).Stanje_racun += transakcija.Iznos_transakcije;
+                    db.Transakcije.Add(transakcija);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("Id_racun", "Ovaj ID računa ne postoji u bazi");
+                    return View(transakcija);
+                }
             }
 
             return View(transakcija);
@@ -106,6 +115,10 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+            Racun povezani_racun = db.Racuni.Find(transakcija.Id_racun);
+            ViewBag.Racun = povezani_racun;
+            Klijent povezani_klijent = db.Klijenti.Find(povezani_racun.Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
             return View(transakcija);
         }
 

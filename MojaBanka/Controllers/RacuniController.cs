@@ -36,6 +36,8 @@ namespace MojaBanka.Controllers
 
             Klijent povezani_klijent = db.Klijenti.FirstOrDefault(x => x.Id_klijent == db.Racuni.FirstOrDefault(y => y.Id_racun == id).Id_klijent);
             ViewBag.Klijent = povezani_klijent;
+            List<Transakcija> povezane_transakcije = db.Transakcije.Where(x => x.Id_racun == id).ToList();
+            ViewBag.Transakcije = povezane_transakcije;
 
             return View(racun);
         }
@@ -68,7 +70,7 @@ namespace MojaBanka.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("Oib_klijent", "Ovaj OIB ne postoji u zapisima klijenata.");
+                    ModelState.AddModelError("Oib_klijent", "Ovaj OIB ne postoji u zapisima klijenata");
                     return View(sent);
                 }
             }
