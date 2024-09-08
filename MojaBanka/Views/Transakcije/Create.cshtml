@@ -34,7 +34,9 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Opis_transakcije, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Opis_transakcije, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.TextAreaFor(model => model.Opis_transakcije, new { htmlAttributes = new { @class = "form-control" }, rows = "4", cols = "50" })
+        </div>
+        <div class="col-md-10">
             @Html.ValidationMessageFor(model => model.Opis_transakcije, "", new { @class = "text-danger" })
         </div>
     </div>

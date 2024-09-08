@@ -54,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.Datum_klijent)
         </td>
         <td>
-            @Html.ActionLink("Ažuriraj", "Edit", new { id=item.Id_klijent }) |
-            @Html.ActionLink("Detalji", "Details", new { id=item.Id_klijent }) |
-            @Html.ActionLink("Izbriši", "Delete", new { id=item.Id_klijent })
+            @Html.ActionLink("Ažuriraj", "Edit", new { id=item.Id_klijent }, new { @class = "btn btn-sm btn-info"})
+            @Html.ActionLink("Detalji", "Details", new { id=item.Id_klijent }, new { @class = "btn btn-sm btn-warning" })
+            @Html.ActionLink("Izbriši", "Delete", new { id=item.Id_klijent }, new { @class = "btn btn-sm btn-danger" })
         </td>
     </tr>
 }

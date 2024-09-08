@@ -42,7 +42,9 @@ namespace MojaBanka.Controllers
         // GET: Klijenti/Create
         public ActionResult Create()
         {
-            return View();
+            Klijent klijent = new Klijent();
+            klijent.Datum_klijent = DateTime.Now.AddYears(-18);
+            return View(klijent);
         }
 
         // POST: Klijenti/Create
@@ -61,6 +63,12 @@ namespace MojaBanka.Controllers
             if (db.Klijenti.Any(x => x.Email_klijent == klijent.Email_klijent))
             {
                 ModelState.AddModelError("Email_klijent", "Klijent s istom e-mail adresom već postoji u bazi");
+                valid = false;
+            }
+            DateTime granica = DateTime.Now.AddYears(-18);
+            if (granica.CompareTo(klijent.Datum_klijent) < 1)
+            {
+                ModelState.AddModelError("Datum_klijent", "Klijent mora imati 18 ili više godina");
                 valid = false;
             }
             if (ModelState.IsValid && valid)
