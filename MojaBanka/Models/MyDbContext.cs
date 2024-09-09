@@ -16,5 +16,8 @@ namespace MojaBanka.Models
         public DbSet<Klijent> Klijenti { get; set; }
         public DbSet<Racun> Racuni { get; set; }
         public DbSet<Transakcija> Transakcije { get; set; }
+
+        public DbSet<Ovlast> Ovlasti { get; set; }
+        public DbSet<Korisnik> Korisnici { get; set; }
     }
 }

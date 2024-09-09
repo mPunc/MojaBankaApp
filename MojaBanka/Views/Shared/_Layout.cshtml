@@ -20,6 +20,19 @@
                     <li>@Html.ActionLink("Klijenti", "Index", "Klijenti", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Računi", "Index", "Racuni", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Transakcije", "Index", "Transakcije", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Korisnici", "Index", "Korisnici", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Registracija", "Registracija", "Korisnici", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if(User.Identity.IsAuthenticated)
+            {
+                <li>@Html.ActionLink("OIB: " + ((User as MojaBanka.Models.LogiraniKorisnik).Oib), "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Odjava", "Odjava", "Korisnici", new { area = "" }, new { @class = "navbar-brand" })</li>
+            }
+                    else
+            {
+                <li>@Html.ActionLink("Prijava", "Prijava", "Korisnici", new { area = "" }, new { @class = "navbar-brand" })</li>
+            }
                 </ul>
             </div>
         </div>
