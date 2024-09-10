@@ -11,7 +11,7 @@
 <h2>Detalji</h2>
 <hr />
 <div>
-    @{  if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+    @{  if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator) || User.IsInRole(MojaBanka.Models.OvlastiKorisnik.Editor))
         {
             <h4>@Html.DisplayNameFor(model => model.Id_transakcija): @Html.DisplayFor(model => model.Id_transakcija)</h4>
         }
@@ -114,10 +114,10 @@
 </dl>
 </div>
 <p>
-    @{ if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+    @{ if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator) || User.IsInRole(MojaBanka.Models.OvlastiKorisnik.Editor))
         {
             <span>
-                @Html.ActionLink("Račun", "Details", "Racuni", new { id = klijent.Id_klijent }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Račun", "Details", "Racuni", new { id = racun.Id_racun }, new { @class = "btn btn-outline-primary" })
             </span>
             <span>
                 @Html.ActionLink("Natrag na listu", "Index", null, new { @class = "btn btn-outline-primary" })
@@ -129,7 +129,7 @@
         else
         {
             <span>
-                @Html.ActionLink("Natrag", "Details", "Racuni", new { id = klijent.Id_klijent }, new { @class = "btn btn-outline-dark" })
+                @Html.ActionLink("Natrag", "Details", "Racuni", new { id = racun.Id_racun }, new { @class = "btn btn-outline-dark" })
             </span>
         }
     }

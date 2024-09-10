@@ -19,11 +19,12 @@ namespace MojaBanka.Models
 
         public string Lozinka { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Izaberite {0}")]
         [Display(Name = "Ovlast")]
         public string Ovlast { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Molim upišite lozinku")]
+        [StringLength(int.MaxValue, MinimumLength = 4, ErrorMessage = "{0} mora biti duga bar 4 znaka")]
         [Display(Name = "Lozinka")]
         [DataType(DataType.Password)]
         [NotMapped]

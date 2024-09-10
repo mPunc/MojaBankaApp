@@ -22,11 +22,11 @@
             {
                     <li>@Html.ActionLink("Korisnici", "Index", "Korisnici", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Klijenti", "Index", "Klijenti", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Računi", "Index", "Racuni", new { area = "" }, new { @class = "nav-link" })</li>
             }
                     @if (User.Identity.IsAuthenticated && 
                         (User.IsInRole(MojaBanka.Models.OvlastiKorisnik.Administrator) || User.IsInRole(MojaBanka.Models.OvlastiKorisnik.Editor)))
             {
+                    <li>@Html.ActionLink("Računi", "Index", "Racuni", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Transakcije", "Index", "Transakcije", new { area = "" }, new { @class = "nav-link" })</li>
             }
                 </ul>

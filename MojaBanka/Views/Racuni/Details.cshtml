@@ -95,12 +95,17 @@
             @Html.ActionLink("Natrag na listu", "Index", null, new { @class = "btn btn-outline-primary" })
         </span>
         }
-        else {
+        else if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Klijent))
+        {
         <span>
             @Html.ActionLink("Natrag", "Details", "Klijenti", new { id = klijent.Id_klijent }, new { @class = "btn btn-outline-primary" })
         </span>
         } 
     }
+    @if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator) || (User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Editor))
+        {
+            @Html.ActionLink("Nova transaskcija", "Create", "Transakcije", new { id = Model.Id_racun }, new { @class = "btn btn-outline-success" })
+        }
 </p>
 <hr />
 <h4>Transakcije</h4>

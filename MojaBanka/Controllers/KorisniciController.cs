@@ -35,7 +35,26 @@ namespace MojaBanka.Controllers
         [AllowAnonymous]
         public ActionResult Registracija(Korisnik model)
         {
-            if (ModelState.IsValid)
+            bool okReg = true;
+            if (db.Korisnici.Any(x => x.Oib == model.Oib))
+            {
+                okReg = false;
+                ModelState.AddModelError("Oib", "Korisnik s istim OIB-om već postoji");
+            }
+            if (model.Ovlast == "KL")
+            {
+                if (db.Klijenti.FirstOrDefault(x => x.Oib_klijent == model.Oib) == null)
+                {
+                    okReg = false;
+                    ModelState.AddModelError("Oib", "Klijent s ovim OIB-om ne postoji u bazi podataka");
+                }
+            }
+            else if (db.Klijenti.Any(x => x.Oib_klijent == model.Oib))
+            {
+                okReg = false;
+                ModelState.AddModelError("Oib", "Klijent s ovim OIB-om već postoji u bazi podataka (nije ok za admina i editora)");
+            }
+            if (ModelState.IsValid && okReg)
             {
                 model.Lozinka = PasswordHelper.GetHash(model.LozinkaUnos);
                 db.Korisnici.Add(model);

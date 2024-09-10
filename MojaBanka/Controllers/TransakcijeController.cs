@@ -15,12 +15,14 @@ namespace MojaBanka.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Transakcije
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         public ActionResult Index()
         {
             return View(db.Transakcije.ToList());
         }
 
         // GET: Transakcije/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,14 +42,22 @@ namespace MojaBanka.Controllers
         }
 
         // GET: Transakcije/Create
-        public ActionResult Create()
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
+        public ActionResult Create(int? id)
         {
+            Transakcija tr = new Transakcija();
+            if (id != null)
+            {
+                tr.Id_racun = (int)id;
+                return View(tr);
+            }
             return View();
         }
 
         // POST: Transakcije/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id_transakcija,Iznos_transakcije,Id_racun,Opis_transakcije")] Transakcija transakcija)
@@ -73,6 +83,7 @@ namespace MojaBanka.Controllers
         }
 
         // GET: Transakcije/Edit/5
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +101,7 @@ namespace MojaBanka.Controllers
         // POST: Transakcije/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id_transakcija,Iznos_transakcije,Id_racun")] Transakcija transakcija)
@@ -104,6 +116,7 @@ namespace MojaBanka.Controllers
         }
 
         // GET: Transakcije/Delete/5
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -123,6 +136,7 @@ namespace MojaBanka.Controllers
         }
 
         // POST: Transakcije/Delete/5
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
