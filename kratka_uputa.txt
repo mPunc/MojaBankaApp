@@ -1,0 +1,2 @@
+"mojabanka.sql" je skripta za kreiranje baze koju imam lokalno spremljenu
+Osim, toga, nadam se da sve radi
