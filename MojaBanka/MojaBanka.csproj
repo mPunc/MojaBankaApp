@@ -191,6 +191,7 @@
     <Compile Include="Models\LogiraniKorisnikSerializeModel.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Ovlast.cs" />
+    <Compile Include="Models\OvlastiKorisnik.cs" />
     <Compile Include="Models\PasswordHelper.cs" />
     <Compile Include="Models\Racun.cs" />
     <Compile Include="Models\RacunCreate.cs" />
@@ -266,6 +267,7 @@
     <Content Include="Views\Korisnici\Index.cshtml" />
     <Content Include="Views\Korisnici\Prijava.cshtml" />
     <Content Include="Views\Korisnici\Registracija.cshtml" />
+    <Content Include="Views\Korisnici\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

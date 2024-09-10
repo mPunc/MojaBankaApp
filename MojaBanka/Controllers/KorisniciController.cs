@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -13,6 +14,7 @@ namespace MojaBanka.Controllers
     {
         MyDbContext db = new MyDbContext();
         // GET: Korisnici
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         public ActionResult Index()
         {
             var listaKorisnika = db.Korisnici.OrderBy(x => x.Ovlast).ToList();
@@ -99,11 +101,39 @@ namespace MojaBanka.Controllers
             return View(model);
         }
 
+        [OverrideAuthorization]
+        [Authorize]
         public ActionResult Odjava()
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
+        public ActionResult Delete(string oib)
+        {
+            if (oib == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Korisnik korisnik = db.Korisnici.Find(oib);
+            if (korisnik == null)
+            {
+                return HttpNotFound();
+            }
+            return View(korisnik);
+        }
+
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(string oib)
+        {
+            Korisnik korisnik = db.Korisnici.Find(oib);
+            db.Korisnici.Remove(korisnik);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }
