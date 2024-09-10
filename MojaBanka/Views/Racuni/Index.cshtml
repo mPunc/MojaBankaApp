@@ -39,11 +39,17 @@
             @Html.DisplayFor(modelItem => item.Stanje_racun)
         </td>
         <td>
-            @Html.ActionLink("Detalji", "Details", new { id = item.Id_racun }, new { @class = "btn btn-sm btn-outline-primary" })
+            <span>
+                @Html.ActionLink("Detalji", "Details", new { id = item.Id_racun }, new { @class = "btn btn-sm btn-outline-primary" })
+            </span>
             @if (User.IsInRole(MojaBanka.Models.OvlastiKorisnik.Administrator))
-            { 
-                @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id_racun }, new { @class = "btn btn-sm btn-outline-primary" })
-                @Html.ActionLink("Izbriši", "Delete", new { id = item.Id_racun }, new { @class = "btn btn-sm btn-outline-danger" })
+            {
+                <span>
+                    @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id_racun }, new { @class = "btn btn-sm btn-outline-primary" })
+                </span>
+                <span>
+                    @Html.ActionLink("Izbriši", "Delete", new { id = item.Id_racun }, new { @class = "btn btn-sm btn-outline-danger" })
+                </span>
             }
         </td>
     </tr>
