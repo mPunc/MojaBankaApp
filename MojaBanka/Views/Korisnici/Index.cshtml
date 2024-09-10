@@ -1,0 +1,36 @@
+﻿@using MojaBanka.Models
+@model List<Korisnik>
+
+@{
+    ViewBag.Title = "Korisnici";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Ovlast> ovlasti = ViewBag.Ovlasti;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Oib)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Ovlast)
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(model => item.Oib)
+        </td>
+        <td>
+            @Html.DisplayFor(model => ovlasti.FirstOrDefault(x => x.Sifra == item.Ovlast).Naziv)
+        </td>
+        <td>
+            @Html.ActionLink("Izbriši", "Delete", new { oib = item.Oib }, new { @class = "btn btn-sm btn-danger" })
+        </td>
+    </tr>
+}
+</table>

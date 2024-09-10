@@ -5,6 +5,7 @@
     ViewBag.Title = "Računi";
     Layout = "~/Views/Shared/_Layout.cshtml";
     Klijent klijent = ViewBag.Klijent;
+    List<Transakcija> transakcije = ViewBag.Transakcije;
 }
 
 <h2>Podaci za račun @Html.DisplayFor(model => model.Id_racun)</h2>
@@ -80,7 +81,66 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Detalji klijenta", "Details", "Klijenti", new { id = klijent.Id_klijent }, null) |
-    @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id_racun }) |
-    @Html.ActionLink("Natrag na listu", "Index")
+    @{  if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+        {
+        <span>
+            @Html.ActionLink("Detalji klijenta", "Details", "Klijenti", new { id = klijent.Id_klijent }, new { @class = "btn btn-outline-primary" })
+        </span>
+
+        <span>
+            @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id_racun }, new { @class = "btn btn-outline-primary" })
+        </span>
+
+        <span>
+            @Html.ActionLink("Natrag na listu", "Index", null, new { @class = "btn btn-outline-primary" })
+        </span>
+        }
+        else if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Klijent))
+        {
+        <span>
+            @Html.ActionLink("Natrag", "Details", "Klijenti", new { id = klijent.Id_klijent }, new { @class = "btn btn-outline-primary" })
+        </span>
+        } 
+    }
+    @if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator) || (User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Editor))
+        {
+            @Html.ActionLink("Nova transaskcija", "Create", "Transakcije", new { id = Model.Id_racun }, new { @class = "btn btn-outline-success" })
+        }
 </p>
+<hr />
+<h4>Transakcije</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => transakcije.First().Iznos_transakcije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => transakcije.First().Opis_transakcije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => transakcije.First().Datum_transakcije)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in transakcije)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iznos_transakcije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis_transakcije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datum_transakcije)
+            </td>
+            <td>
+                @Html.ActionLink("Detalji", "Details", "Transakcije", new { id = item.Id_transakcija }, new { @class = "btn btn-outline-dark" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

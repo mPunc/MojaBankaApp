@@ -17,7 +17,7 @@ namespace MojaBanka.Models
         public int Id_racun { get; set; }
 
         [Required(ErrorMessage = "{0} je obavezan podatak")]
-        [Display(Name = "Stanje računa")]
+        [Display(Name = "Stanje računa (€)")]
         [DisplayFormat(DataFormatString ="{0} €")]
         [Column("stanje_racun")]
         public double Stanje_racun { get; set; }

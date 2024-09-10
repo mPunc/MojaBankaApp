@@ -105,8 +105,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Izbriši" class="btn btn-default" /> |
-            @Html.ActionLink("Natrag na listu", "Index")
+            <input type="submit" value="Izbriši" class="btn btn-outline-danger" />
+            @Html.ActionLink("Natrag na listu", "Index", null, new { @class = "btn btn-outline-primary" })
         </div>
     }
 </div>

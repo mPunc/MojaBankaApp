@@ -7,17 +7,21 @@
 }
 
 <h2>Lista računa</h2>
+@if (User.IsInRole(MojaBanka.Models.OvlastiKorisnik.Administrator))
+{
+    <p>
+        @Html.ActionLink("Dodaj novi račun", "Create", null, new { @class = "btn btn-outline-success" })
+    </p>
 
-<p>
-    @Html.ActionLink("Dodaj novi račun", "Create")
-</p>
+}
+<hr />
 <table class="table">
     <tr>
         <th>
             OIB klijenta
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Stanje_racun) (€)
+            @Html.DisplayNameFor(model => model.Stanje_racun)
         </th>
         <th></th>
     </tr>
@@ -35,9 +39,12 @@
             @Html.DisplayFor(modelItem => item.Stanje_racun)
         </td>
         <td>
-            @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id_racun }) |
-            @Html.ActionLink("Detalji", "Details", new { id = item.Id_racun }) |
-            @Html.ActionLink("Izbriši", "Delete", new { id = item.Id_racun })
+            @Html.ActionLink("Detalji", "Details", new { id = item.Id_racun }, new { @class = "btn btn-sm btn-outline-primary" })
+            @if (User.IsInRole(MojaBanka.Models.OvlastiKorisnik.Administrator))
+            { 
+                @Html.ActionLink("Ažuriraj", "Edit", new { id = item.Id_racun }, new { @class = "btn btn-sm btn-outline-primary" })
+                @Html.ActionLink("Izbriši", "Delete", new { id = item.Id_racun }, new { @class = "btn btn-sm btn-outline-danger" })
+            }
         </td>
     </tr>
 }

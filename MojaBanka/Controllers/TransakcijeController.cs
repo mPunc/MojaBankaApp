@@ -15,12 +15,14 @@ namespace MojaBanka.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Transakcije
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         public ActionResult Index()
         {
             return View(db.Transakcije.ToList());
         }
 
         // GET: Transakcije/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -32,33 +34,56 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+            Racun povezani_racun = db.Racuni.Find(transakcija.Id_racun);
+            ViewBag.Racun = povezani_racun;
+            Klijent povezani_klijent = db.Klijenti.Find(povezani_racun.Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
             return View(transakcija);
         }
 
         // GET: Transakcije/Create
-        public ActionResult Create()
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
+        public ActionResult Create(int? id)
         {
+            Transakcija tr = new Transakcija();
+            if (id != null)
+            {
+                tr.Id_racun = (int)id;
+                return View(tr);
+            }
             return View();
         }
 
         // POST: Transakcije/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_transakcija,Iznos_transakcije,Id_racun")] Transakcija transakcija)
+        public ActionResult Create([Bind(Include = "Id_transakcija,Iznos_transakcije,Id_racun,Opis_transakcije")] Transakcija transakcija)
         {
             if (ModelState.IsValid)
             {
-                db.Transakcije.Add(transakcija);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (db.Racuni.Any(x => x.Id_racun == transakcija.Id_racun))
+                {
+                    transakcija.Datum_transakcije = DateTime.Now;
+                    db.Racuni.Find(transakcija.Id_racun).Stanje_racun += transakcija.Iznos_transakcije;
+                    db.Transakcije.Add(transakcija);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("Id_racun", "Ovaj ID računa ne postoji u bazi");
+                    return View(transakcija);
+                }
             }
 
             return View(transakcija);
         }
 
         // GET: Transakcije/Edit/5
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,6 +101,7 @@ namespace MojaBanka.Controllers
         // POST: Transakcije/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id_transakcija,Iznos_transakcije,Id_racun")] Transakcija transakcija)
@@ -90,6 +116,7 @@ namespace MojaBanka.Controllers
         }
 
         // GET: Transakcije/Delete/5
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -101,10 +128,15 @@ namespace MojaBanka.Controllers
             {
                 return HttpNotFound();
             }
+            Racun povezani_racun = db.Racuni.Find(transakcija.Id_racun);
+            ViewBag.Racun = povezani_racun;
+            Klijent povezani_klijent = db.Klijenti.Find(povezani_racun.Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
             return View(transakcija);
         }
 
         // POST: Transakcije/Delete/5
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
