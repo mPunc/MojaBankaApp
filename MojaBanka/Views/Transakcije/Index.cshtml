@@ -8,7 +8,7 @@
 <h2>Lista transakcija</h2>
 
 <h3>
-    @Html.ActionLink("Nova transakcija", "Create")
+    @Html.ActionLink("Nova transakcija", "Create", null, new { @class = "btn btn-outline-success" })
 </h3>
 <table class="table">
     <tr>
@@ -42,8 +42,8 @@
             @Html.DisplayFor(modelItem => item.Datum_transakcije)
         </td>
         <td>
-            @Html.ActionLink("Detalji", "Details", new { id = item.Id_transakcija }) |
-            @Html.ActionLink("Izbriši", "Delete", new { id = item.Id_transakcija })
+            @Html.ActionLink("Detalji", "Details", new { id = item.Id_transakcija }, new { @class = "btn btn-sm btn-outline-primary" })
+            @Html.ActionLink("Izbriši", "Delete", new { id = item.Id_transakcija }, new { @class = "btn btn-sm btn-outline-danger" })
         </td>
     </tr>
 }

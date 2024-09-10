@@ -11,101 +11,126 @@
 <h2>Detalji</h2>
 <hr />
 <div>
-    <h4>@Html.DisplayNameFor(model => model.Id_transakcija): @Html.DisplayFor(model => model.Id_transakcija)</h4>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Iznos_transakcije)
-        </dt>
+    @{  if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+        {
+            <h4>@Html.DisplayNameFor(model => model.Id_transakcija): @Html.DisplayFor(model => model.Id_transakcija)</h4>
+        }
+        else
+        {
+            <h4>Vaša transakcija</h4>
+        }
+    }
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Iznos_transakcije)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Iznos_transakcije)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => model.Iznos_transakcije)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Id_racun)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.Id_racun)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Id_racun)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => model.Id_racun)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Datum_transakcije)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.Datum_transakcije)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Datum_transakcije)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => model.Datum_transakcije)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Opis_transakcije)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.Opis_transakcije)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Opis_transakcije)
-        </dd>
-    </dl>
-    <hr />
-    <h4>Podaci računa i vlasnika</h4>
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => racun.Stanje_racun)
-        </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Opis_transakcije)
+    </dd>
+</dl>
+<hr />
+<h4>Podaci računa i vlasnika</h4>
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => racun.Stanje_racun)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => racun.Stanje_racun)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => racun.Stanje_racun)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => klijent.Oib_klijent)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => klijent.Oib_klijent)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => klijent.Oib_klijent)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => klijent.Oib_klijent)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => klijent.Ime_klijent)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => klijent.Ime_klijent)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => klijent.Ime_klijent)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => klijent.Ime_klijent)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => klijent.Prezime_klijent)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => klijent.Prezime_klijent)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => klijent.Prezime_klijent)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => klijent.Prezime_klijent)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => klijent.Adresa_klijent)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => klijent.Adresa_klijent)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => klijent.Adresa_klijent)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => klijent.Adresa_klijent)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => klijent.Email_klijent)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => klijent.Email_klijent)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => klijent.Email_klijent)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => klijent.Email_klijent)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => klijent.Datum_klijent)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => klijent.Datum_klijent)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => klijent.Datum_klijent)
-        </dd>
-    </dl>
+    <dd>
+        @Html.DisplayFor(model => klijent.Datum_klijent)
+    </dd>
+</dl>
 </div>
 <p>
-    @Html.ActionLink("Natrag na listu", "Index") |
-    @Html.ActionLink("Izbriši", "Delete", new { id = Model.Id_transakcija })
+    @{ if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+        {
+            <span>
+                @Html.ActionLink("Račun", "Details", "Racuni", new { id = klijent.Id_klijent }, new { @class = "btn btn-outline-primary" })
+            </span>
+            <span>
+                @Html.ActionLink("Natrag na listu", "Index", null, new { @class = "btn btn-outline-primary" })
+            </span>
+            <span>
+                @Html.ActionLink("Izbriši", "Delete", new { id = Model.Id_transakcija }, new { @class = "btn btn-outline-danger" })
+            </span>
+        }
+        else
+        {
+            <span>
+                @Html.ActionLink("Natrag", "Details", "Racuni", new { id = klijent.Id_klijent }, new { @class = "btn btn-outline-dark" })
+            </span>
+        }
+    }
 </p>

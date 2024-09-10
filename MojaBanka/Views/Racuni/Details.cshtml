@@ -81,9 +81,26 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Detalji klijenta", "Details", "Klijenti", new { id = klijent.Id_klijent }, null) |
-    @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id_racun }) |
-    @Html.ActionLink("Natrag na listu", "Index")
+    @{  if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+        {
+        <span>
+            @Html.ActionLink("Detalji klijenta", "Details", "Klijenti", new { id = klijent.Id_klijent }, new { @class = "btn btn-outline-primary" })
+        </span>
+
+        <span>
+            @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id_racun }, new { @class = "btn btn-outline-primary" })
+        </span>
+
+        <span>
+            @Html.ActionLink("Natrag na listu", "Index", null, new { @class = "btn btn-outline-primary" })
+        </span>
+        }
+        else {
+        <span>
+            @Html.ActionLink("Natrag", "Details", "Klijenti", new { id = klijent.Id_klijent }, new { @class = "btn btn-outline-primary" })
+        </span>
+        } 
+    }
 </p>
 <hr />
 <h4>Transakcije</h4>
@@ -114,7 +131,7 @@
                 @Html.DisplayFor(modelItem => item.Datum_transakcije)
             </td>
             <td>
-                @Html.ActionLink("Detalji", "Details", "Transakcije", new { id = item.Id_transakcija }, null)
+                @Html.ActionLink("Detalji", "Details", "Transakcije", new { id = item.Id_transakcija }, new { @class = "btn btn-outline-dark" })
             </td>
         </tr>
     }

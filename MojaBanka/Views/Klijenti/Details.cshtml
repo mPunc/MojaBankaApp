@@ -12,13 +12,16 @@
     <h4>Podaci</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id_klijent)
-        </dt>
+        @if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Id_klijent)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Id_klijent)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Id_klijent)
+            </dd>
+        }
 
         <dt>
             @Html.DisplayNameFor(model => model.Ime_klijent)
@@ -77,9 +80,20 @@
         if (prvi_racun)
         {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(x => rac.Id_racun)
-                </th>
+                @{if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+                    {
+                    <th>
+                        @Html.DisplayNameFor(x => rac.Id_racun)
+                    </th>
+                    }
+                else
+                    {
+                    <th>
+                        Broj računa
+                    </th>
+                    }
+                }
+
                 <th>
                     @Html.DisplayNameFor(x => rac.Stanje_racun)
                 </th>
@@ -95,16 +109,31 @@
                 @Html.DisplayFor(modelItem => rac.Stanje_racun)
             </td>
             <td>
-                @Html.ActionLink("Ažuriraj", "Edit", "Racuni", new { id = rac.Id_racun }, null) |
-                @Html.ActionLink("Detalji", "Details", "Racuni", new { id = rac.Id_racun }, null) |
-                @Html.ActionLink("Izbriši", "Delete", "Racuni", new { id = rac.Id_racun }, null)
+                <span>
+                    @Html.ActionLink("Detalji", "Details", "Racuni", new { id = rac.Id_racun }, new { @class = "btn btn-outline-primary" })
+                </span>
+                @if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+                {
+                    <span>
+                        @Html.ActionLink("Ažuriraj", "Edit", "Racuni", new { id = rac.Id_racun }, new { @class = "btn btn-outline-primary" })
+                    </span>
+                    <span>
+                        @Html.ActionLink("Izbriši", "Delete", "Racuni", new { id = rac.Id_racun }, new { @class = "btn btn-outline-danger" })
+                    </span>
+                }
             </td>
         </tr>
     }
 
 </table>
-
-<p>
-    @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id_klijent }) |
-    @Html.ActionLink("Natrag na listu", "Index")
-</p>
+@if ((User as LogiraniKorisnik).IsInRole(OvlastiKorisnik.Administrator))
+{
+    <p>
+        <span>
+            @Html.ActionLink("Ažuriraj", "Edit", new { id = Model.Id_klijent }, new { @class = "btn btn-outline-primary" })
+        </span>
+        <span>
+            @Html.ActionLink("Natrag na listu", "Index", null, new { @class = "btn btn-outline-primary" })
+        </span>
+    </p>
+}
