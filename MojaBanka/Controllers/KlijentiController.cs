@@ -15,12 +15,14 @@ namespace MojaBanka.Controllers
         private MyDbContext db = new MyDbContext();
 
         // GET: Klijenti
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
         public ActionResult Index()
         {
             return View(db.Klijenti.ToList());
         }
 
         // GET: Klijenti/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,9 +42,12 @@ namespace MojaBanka.Controllers
         }
 
         // GET: Klijenti/Create
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
         public ActionResult Create()
         {
-            return View();
+            Klijent klijent = new Klijent();
+            klijent.Datum_klijent = DateTime.Now.AddYears(-18);
+            return View(klijent);
         }
 
         // POST: Klijenti/Create
@@ -50,6 +55,7 @@ namespace MojaBanka.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
         public ActionResult Create([Bind(Include = "Id_klijent,Ime_klijent,Prezime_klijent,Adresa_klijent,Oib_klijent,Email_klijent,Datum_klijent")] Klijent klijent)
         {
             bool valid = true;
@@ -63,6 +69,12 @@ namespace MojaBanka.Controllers
                 ModelState.AddModelError("Email_klijent", "Klijent s istom e-mail adresom već postoji u bazi");
                 valid = false;
             }
+            DateTime granica = DateTime.Now.AddYears(-18);
+            if (granica.CompareTo(klijent.Datum_klijent) < 1)
+            {
+                ModelState.AddModelError("Datum_klijent", "Klijent mora imati 18 ili više godina");
+                valid = false;
+            }
             if (ModelState.IsValid && valid)
             {
                 db.Klijenti.Add(klijent);
@@ -74,6 +86,7 @@ namespace MojaBanka.Controllers
         }
 
         // GET: Klijenti/Edit/5
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +104,7 @@ namespace MojaBanka.Controllers
         // POST: Klijenti/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id_klijent,Ime_klijent,Prezime_klijent,Adresa_klijent,Oib_klijent,Email_klijent,Datum_klijent")] Klijent klijent)
@@ -116,6 +130,7 @@ namespace MojaBanka.Controllers
         }
 
         // GET: Klijenti/Delete/5
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -135,6 +150,7 @@ namespace MojaBanka.Controllers
         }
 
         // POST: Klijenti/Delete/5
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

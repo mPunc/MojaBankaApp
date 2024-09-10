@@ -7,16 +7,16 @@ using System.Web;
 
 namespace MojaBanka.Models
 {
-    public class RacunCreate
+    public class KorisnikPrijava
     {
         [Required(ErrorMessage = "{0} je obavezan podatak")]
-        [Display(Name = "Stanje računa (€)")]
-        [DisplayFormat(DataFormatString = "{0} €")]
-        public double Stanje_racun { get; set; }
-
-        [Required(ErrorMessage = "{0} je obavezan podatak")]
-        [Display(Name = "OIB klijenta")]
+        [Display(Name = "OIB")]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "{0} mora bit duljine 11 znakova")]
-        public string Oib_klijent { get; set; }
+        public string Oib { get; set; }
+
+        [Required]
+        [Display(Name = "Lozinka")]
+        [DataType(DataType.Password)]
+        public string Lozinka { get; set; }
     }
 }

@@ -45,8 +45,8 @@ namespace MojaBanka.Models
 
         [Required(ErrorMessage = "{0} je obavezan podatak")]
         [Display(Name = "Datum rođenja")]
-        [DisplayFormat(DataFormatString ="{0:dd. MM. yyyy}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Column("datum")]
         public DateTime Datum_klijent { get; set; }
     }

@@ -22,9 +22,20 @@ namespace MojaBanka.Models
         [Column("iznos")]
         public double Iznos_transakcije { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "{0} je obavezan podatak")]
         [Display(Name = "Id računa u bazi")]
         [Column("id_racun")]
         public int Id_racun { get; set; }
+
+        [Display(Name = "Datum transakcije")]
+        [DisplayFormat(DataFormatString = "{0:dd. MM. yyyy HH:mm}", ApplyFormatInEditMode = false)]
+        [DataType(DataType.DateTime)]
+        [Column("datum_vrijeme")]
+        public DateTime Datum_transakcije { get; set; }
+
+        [Required(ErrorMessage = "{0} je obavezan podatak")]
+        [Display(Name = "Opis")]
+        [Column("opis")]
+        public string Opis_transakcije { get; set; }
     }
 }

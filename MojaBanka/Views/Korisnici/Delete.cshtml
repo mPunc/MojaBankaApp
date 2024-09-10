@@ -1,0 +1,42 @@
+﻿@model MojaBanka.Models.Korisnik
+
+@{
+    ViewBag.Title = "Korisnici";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Izbriši korisnika</h2>
+
+
+<h4>Obriši korisnika @Html.DisplayFor(model => model.Oib)?</h4>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Oib)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oib)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ovlast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ovlast)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbriši" class="btn btn-outline-danger" />
+            @Html.ActionLink("Natrag na listu", "Index", null, new { @class = "btn btn-outline-primary" })
+        </div>
+    }
+</div>
