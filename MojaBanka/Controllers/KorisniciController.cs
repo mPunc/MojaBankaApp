@@ -14,7 +14,7 @@ namespace MojaBanka.Controllers
     {
         MyDbContext db = new MyDbContext();
         // GET: Korisnici
-        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
+        [Authorize(Roles = OvlastiKorisnik.Administrator)]
         public ActionResult Index()
         {
             var listaKorisnika = db.Korisnici.OrderBy(x => x.Ovlast).ToList();

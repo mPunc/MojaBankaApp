@@ -1,0 +1,123 @@
+﻿@model MojaBanka.Models.Racun
+@using MojaBanka.Models
+
+@{
+    ViewBag.Title = "Moj Račun";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Klijent klijent = ViewBag.Klijent;
+    List<Transakcija> transakcije = ViewBag.Transakcije;
+}
+
+<h2>@ViewBag.Title @Html.DisplayFor(model => model.Id_racun)</h2>
+
+
+<div>
+    <h4>@Html.DisplayFor(model => klijent.Ime_klijent) @Html.DisplayFor(model => klijent.Prezime_klijent)</h4>
+    <p>
+        <span>
+            @Html.ActionLink("Natrag", "MojiPodaci", "Profil", null, new { @class = "btn btn-outline-dark" })
+        </span>
+    </p>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Oib_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Oib_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stanje_racun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stanje_racun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_racun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_racun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Ime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Ime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Prezime_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Prezime_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Adresa_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Adresa_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Email_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Email_klijent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => klijent.Datum_klijent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => klijent.Datum_klijent)
+        </dd>
+
+    </dl>
+</div>
+<hr />
+<h4>Transakcije</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => transakcije.First().Iznos_transakcije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => transakcije.First().Opis_transakcije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => transakcije.First().Datum_transakcije)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in transakcije)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iznos_transakcije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis_transakcije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Datum_transakcije)
+            </td>
+            <td>
+                @Html.ActionLink("Detalji", "MojeTransakcije", "Profil", new { id = item.Id_transakcija }, new { @class = "btn btn-outline-primary" })
+            </td>
+        </tr>
+    }
+
+</table>

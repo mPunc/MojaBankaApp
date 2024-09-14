@@ -179,6 +179,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KlijentiController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
+    <Compile Include="Controllers\ProfilController.cs" />
     <Compile Include="Controllers\RacuniController.cs" />
     <Compile Include="Controllers\TransakcijeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -266,6 +267,9 @@
     <Content Include="Views\Korisnici\Prijava.cshtml" />
     <Content Include="Views\Korisnici\Registracija.cshtml" />
     <Content Include="Views\Korisnici\Delete.cshtml" />
+    <Content Include="Views\Profil\MojiPodaci.cshtml" />
+    <Content Include="Views\Profil\MojRacun.cshtml" />
+    <Content Include="Views\Profil\MojeTransakcije.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
