@@ -22,7 +22,7 @@ namespace MojaBanka.Controllers
         }
 
         // GET: Transakcije/Details/5
-        [Authorize]
+        [Authorize(Roles = OvlastiKorisnik.Administrator + ", " + OvlastiKorisnik.Editor)]
         public ActionResult Details(int? id)
         {
             if (id == null)

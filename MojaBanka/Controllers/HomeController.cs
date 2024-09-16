@@ -11,6 +11,7 @@ namespace MojaBanka.Controllers
     {
         private MyDbContext db = new MyDbContext();
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             ViewBag.Baza = db.Klijenti.ToList();

@@ -10,6 +10,13 @@
 <h3>
     @Html.ActionLink("Nova transakcija", "Create", null, new { @class = "btn btn-outline-success" })
 </h3>
+
+<div class="d-flex align-items-center gap-2">
+    <input id="id-polje" type="text" class="form-control d-inline-block" placeholder="Upišite ID">
+    <button class="btn btn-outline-primary" onclick="mojSearch()">Traži</button>
+    <button class="btn btn-outline-primary" onclick="prikaziSve()">Prikaži sve</button>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -18,7 +25,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Iznos_transakcije)
         </th>
-        <th>
+        <th style="max-width: 300px;">
             @Html.DisplayNameFor(model => model.Opis_transakcije)
         </th>
         <th>
@@ -28,14 +35,14 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
+    <tr class="moji-podaci">
+        <td class="id-p">
             @Html.DisplayFor(modelItem => item.Id_racun)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Iznos_transakcije)
         </td>
-        <td>
+        <td style="max-width: 300px;">
             <p class="text-break">
                 @Html.DisplayFor(modelItem => item.Opis_transakcije)
             </p>
@@ -51,3 +58,28 @@
 }
 
 </table>
+
+<script>
+    function mojSearch() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+
+        var id_t = document.getElementById("id-polje").value.toString();
+
+        for (var i = 0; i < rezultat.length; i++) {
+            var trenutni_id = rezultat[i].querySelectorAll(".id-p").item(0);
+            if (!trenutni_id.innerHTML.trim().includes(id_t, 0)) {
+                rezultat[i].setAttribute("hidden", true);
+            }
+            else {
+                rezultat[i].removeAttribute("hidden");
+            }
+        }
+    }
+
+    function prikaziSve() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+        for (var i = 0; i < rezultat.length; i++) {
+            rezultat[i].removeAttribute("hidden");
+        }
+    }
+</script>

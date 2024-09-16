@@ -14,7 +14,13 @@
     </p>
 
 }
-<hr />
+
+<div class="d-flex align-items-center gap-2">
+    <input id="oib-polje" type="text" class="form-control d-inline-block" placeholder="Upišite OIB">
+    <button class="btn btn-outline-primary" onclick="mojSearch()">Traži</button>
+    <button class="btn btn-outline-primary" onclick="prikaziSve()">Prikaži sve</button>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -28,8 +34,8 @@
 
 @foreach (var item in Model)
 {
-    <tr>
-        <td>
+    <tr class="moji-podaci">
+        <td class="oib-p">
             @{
                 Klijent trenutni = klijenti.FirstOrDefault(x => x.Id_klijent == item.Id_klijent);
             }
@@ -56,3 +62,29 @@
 }
 
 </table>
+
+<script>
+    function mojSearch() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+
+        var oib_t = document.getElementById("oib-polje").value.toString();
+
+        for (var i = 0; i < rezultat.length; i++)
+        {
+            var trenutni_oib = rezultat[i].querySelectorAll(".oib-p").item(0);
+            if (!trenutni_oib.innerHTML.trim().includes(oib_t, 0)) {
+                rezultat[i].setAttribute("hidden", true);
+            }
+            else {
+                rezultat[i].removeAttribute("hidden");
+            }
+        }
+    }
+
+    function prikaziSve() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+        for (var i = 0; i < rezultat.length; i++) {
+            rezultat[i].removeAttribute("hidden");
+        }
+    }
+</script>
