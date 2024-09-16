@@ -9,6 +9,17 @@
 
 <h2>@ViewBag.Title</h2>
 
+<div class="d-flex align-items-center gap-2">
+    <select id="select-polje" class="form-select">
+        <option value="0" selected>Administrator</option>
+        <option value="1">Editor</option>
+        <option value="2">Klijent</option>
+    </select>
+    <input id="oib-polje" type="text" class="form-control d-inline-block" placeholder="Upišite OIB">
+    <button class="btn btn-outline-primary" onclick="mojSearch()">Traži</button>
+    <button class="btn btn-outline-primary" onclick="prikaziSve()">Prikaži sve</button>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -21,11 +32,11 @@
     </tr>
 @foreach (var item in Model)
 {
-    <tr>
-        <td>
+    <tr class="moji-podaci">
+        <td class="oib-p">
             @Html.DisplayFor(model => item.Oib)
         </td>
-        <td>
+        <td class="ovlast-p">
             @Html.DisplayFor(model => ovlasti.FirstOrDefault(x => x.Sifra == item.Ovlast).Naziv)
         </td>
         <td>
@@ -34,3 +45,32 @@
     </tr>
 }
 </table>
+
+<script>
+    function mojSearch() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+        var ovlast_t = document.getElementById("select-polje");
+        ovlast_t = ovlast_t.options[ovlast_t.selectedIndex].text.toString().trim();
+        var oib_t = document.getElementById("oib-polje").value.toString();
+
+        for (var i = 0; i < rezultat.length; i++) {
+            var trenutni_oib = rezultat[i].querySelectorAll(".oib-p").item(0);
+            if (!trenutni_oib.innerHTML.trim().includes(oib_t, 0)) {
+                rezultat[i].setAttribute("hidden", true);
+            }
+            else if (!rezultat[i].querySelectorAll(".ovlast-p").item(0).innerHTML.trim().includes(ovlast_t, 0)) {
+                rezultat[i].setAttribute("hidden", true);
+            }
+            else {
+                rezultat[i].removeAttribute("hidden");
+            }
+        }
+    }
+
+    function prikaziSve() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+        for (var i = 0; i < rezultat.length; i++) {
+            rezultat[i].removeAttribute("hidden");
+        }
+    }
+</script>

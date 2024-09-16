@@ -10,6 +10,18 @@
 <p>
     @Html.ActionLink("Dodaj novog klijenta", "Create", null, new { @class = "btn btn-outline-success" })
 </p>
+
+<div class="d-flex align-items-center gap-2">
+    <select id="select-polje" class="form-select">
+        <option value="0" selected>Odaberite pretraživanje</option>
+        <option value="1">OIB</option>
+        <option value="2">Prezime</option>
+    </select>
+    <input id="oib-polje" type="text" class="form-control d-inline-block" placeholder="Upišite parametar">
+    <button class="btn btn-outline-primary" onclick="mojSearch()">Traži</button>
+    <button class="btn btn-outline-primary" onclick="prikaziSve()">Prikaži sve</button>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -34,17 +46,17 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr class="moji-podaci">
         <td>
             @Html.DisplayFor(modelItem => item.Ime_klijent)
         </td>
-        <td>
+        <td class="prezime-klijenta">
             @Html.DisplayFor(modelItem => item.Prezime_klijent)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Adresa_klijent)
         </td>
-        <td>
+        <td class="oib-klijenta">
             @Html.DisplayFor(modelItem => item.Oib_klijent)
         </td>
         <td>
@@ -62,3 +74,47 @@
 }
 
 </table>
+
+<script>
+    function mojSearch() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+
+        var trazim = document.getElementById("select-polje").value.toString();
+        var trazim_para = document.getElementById("oib-polje").value.toString();
+
+        if (trazim != "0") {
+            if (trazim == "1") {
+                for (var i = 0; i < rezultat.length; i++) {
+                    var trenutni_oib = rezultat[i].querySelectorAll(".oib-klijenta").item(0);
+                    if (!trenutni_oib.innerHTML.trim().includes(trazim_para, 0)) {
+                        rezultat[i].setAttribute("hidden", true);
+                    }
+                    else {
+                        rezultat[i].removeAttribute("hidden");
+                    }
+                }
+            }
+            else if (trazim == "2") {
+                for (var i = 0; i < rezultat.length; i++) {
+                    var trenutno_prez = rezultat[i].querySelectorAll(".prezime-klijenta").item(0);
+                    if (!trenutno_prez.innerHTML.trim().includes(trazim_para, 0)) {
+                        rezultat[i].setAttribute("hidden", true);
+                    }
+                    else {
+                        rezultat[i].removeAttribute("hidden");
+                    }
+                }
+            }
+        }
+        else {
+            alert("Molim odaberite parametar za pretraživanje!")
+        }
+    }
+
+    function prikaziSve() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+        for (var i = 0; i < rezultat.length; i++) {
+            rezultat[i].removeAttribute("hidden");
+        }
+    }
+</script>
