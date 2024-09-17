@@ -40,6 +40,8 @@ namespace MojaBanka.Controllers
             ViewBag.Klijent = povezani_klijent;
             List<Transakcija> povezane_transakcije = db.Transakcije.Where(x => x.Id_racun == id).ToList();
             ViewBag.Transakcije = povezane_transakcije;
+            List<Kredit> povezani_krediti = db.Kredits.Where(x => x.Id_racun == id).ToList();
+            ViewBag.Krediti = povezani_krediti;
 
             return View(racun);
         }

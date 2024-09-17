@@ -43,6 +43,8 @@ namespace MojaBanka.Controllers
             ViewBag.Klijent = povezani_klijent;
             List<Transakcija> povezane_transakcije = db.Transakcije.Where(x => x.Id_racun == id).ToList();
             ViewBag.Transakcije = povezane_transakcije;
+            List<Kredit> povezani_krediti = db.Kredits.Where(x => x.Id_racun == id).ToList();
+            ViewBag.Krediti = povezani_krediti;
 
             return View(racun);
         }
@@ -71,6 +73,32 @@ namespace MojaBanka.Controllers
             }
 
             return View(transakcija);
+        }
+
+        [Authorize(Roles = OvlastiKorisnik.Klijent)]
+        public ActionResult MojiKrediti(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Kredit kredit = db.Kredits.Find(id);
+            if (kredit == null)
+            {
+                return HttpNotFound();
+            }
+
+            Racun povezani_racun = db.Racuni.Find(kredit.Id_racun);
+            ViewBag.Racun = povezani_racun;
+            Klijent povezani_klijent = db.Klijenti.Find(povezani_racun.Id_klijent);
+            ViewBag.Klijent = povezani_klijent;
+
+            if (povezani_klijent.Oib_klijent != ((User as LogiraniKorisnik).Oib))
+            {
+                return HttpNotFound();
+            }
+
+            return View(kredit);
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿@model MojaBanka.Models.Transakcija
+﻿@model MojaBanka.Models.Kredit
 @using MojaBanka.Models
 
 @{
-    ViewBag.Title = "Moje Transakcije";
+    ViewBag.Title = "Moji Krediti";
     Layout = "~/Views/Shared/_Layout.cshtml";
     Klijent klijent = ViewBag.Klijent;
     Racun racun = ViewBag.Racun;
@@ -11,16 +11,8 @@
 <h2>Detalji</h2>
 <hr />
 <div>
-    <h4>Vaša transakcija</h4>
+    <h4>Vaš kredit</h4>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Iznos_transakcije)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Iznos_transakcije)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Id_racun)
         </dt>
@@ -30,19 +22,35 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Datum_transakcije)
+            @Html.DisplayNameFor(model => model.Iznos_kredita)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Datum_transakcije)
+            @Html.DisplayFor(model => model.Iznos_kredita)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Opis_transakcije)
+            @Html.DisplayNameFor(model => model.Kreditna_stopa)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Opis_transakcije)
+            @Html.DisplayFor(model => model.Kreditna_stopa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rok_otplate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rok_otplate)
+        </dd>
+
+        <dt>
+            Ukupno za otplatiti
+        </dt>
+
+        <dd>
+            @((Model.Iznos_kredita + Model.Iznos_kredita * Model.Kreditna_stopa * 0.01).ToString()) €
         </dd>
     </dl>
     <p>
@@ -50,6 +58,7 @@
             @Html.ActionLink("Natrag", "MojRacun", "Profil", new { id = racun.Id_racun }, new { @class = "btn btn-outline-dark" })
         </span>
     </p>
+
     <hr />
     <h4>Podaci računa i vlasnika</h4>
     <dl class="dl-horizontal">

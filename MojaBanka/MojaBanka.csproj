@@ -179,6 +179,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KlijentiController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
+    <Compile Include="Controllers\KreditiController.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
     <Compile Include="Controllers\RacuniController.cs" />
     <Compile Include="Controllers\TransakcijeController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Models\Klijent.cs" />
     <Compile Include="Models\Korisnik.cs" />
     <Compile Include="Models\KorisnikPrijava.cs" />
+    <Compile Include="Models\Kredit.cs" />
     <Compile Include="Models\LogiraniKorisnik.cs" />
     <Compile Include="Models\LogiraniKorisnikSerializeModel.cs" />
     <Compile Include="Models\MyDbContext.cs" />
@@ -270,6 +272,12 @@
     <Content Include="Views\Profil\MojiPodaci.cshtml" />
     <Content Include="Views\Profil\MojRacun.cshtml" />
     <Content Include="Views\Profil\MojeTransakcije.cshtml" />
+    <Content Include="Views\Krediti\Create.cshtml" />
+    <Content Include="Views\Krediti\Delete.cshtml" />
+    <Content Include="Views\Krediti\Details.cshtml" />
+    <Content Include="Views\Krediti\Edit.cshtml" />
+    <Content Include="Views\Krediti\Index.cshtml" />
+    <Content Include="Views\Profil\MojiKrediti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

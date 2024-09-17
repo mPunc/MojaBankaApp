@@ -19,5 +19,7 @@ namespace MojaBanka.Models
 
         public DbSet<Ovlast> Ovlasti { get; set; }
         public DbSet<Korisnik> Korisnici { get; set; }
+
+        public System.Data.Entity.DbSet<MojaBanka.Models.Kredit> Kredits { get; set; }
     }
 }

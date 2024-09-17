@@ -1,0 +1,83 @@
+﻿@model IEnumerable<MojaBanka.Models.Kredit>
+
+@{
+    ViewBag.Title = "Krediti";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista kredita</h2>
+
+<p>
+    @Html.ActionLink("Novi kredit", "Create", null, new { @class = "btn btn-outline-success" })
+</p>
+
+<div class="d-flex align-items-center gap-2">
+    <input id="id-polje" type="text" class="form-control d-inline-block" placeholder="Upišite ID">
+    <button class="btn btn-outline-primary" onclick="mojSearch()">Traži</button>
+    <button class="btn btn-outline-primary" onclick="prikaziSve()">Prikaži sve</button>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_racun)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Iznos_kredita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kreditna_stopa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rok_otplate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="moji-podaci">
+        <td class="id-p">
+            @Html.DisplayFor(modelItem => item.Id_racun)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Iznos_kredita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kreditna_stopa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rok_otplate)
+        </td>
+        <td>
+            @Html.ActionLink("Detalji", "Details", new { id = item.Id_kredit }, new { @class = "btn btn-sm btn-outline-primary" })
+            @Html.ActionLink("Izbriši", "Delete", new { id = item.Id_kredit }, new { @class = "btn btn-sm btn-outline-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<script>
+    function mojSearch() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+
+        var id_t = document.getElementById("id-polje").value.toString();
+
+        for (var i = 0; i < rezultat.length; i++) {
+            var trenutni_id = rezultat[i].querySelectorAll(".id-p").item(0);
+            if (!trenutni_id.innerHTML.trim().includes(id_t, 0)) {
+                rezultat[i].setAttribute("hidden", true);
+            }
+            else {
+                rezultat[i].removeAttribute("hidden");
+            }
+        }
+    }
+
+    function prikaziSve() {
+        var rezultat = document.getElementsByClassName("moji-podaci");
+        for (var i = 0; i < rezultat.length; i++) {
+            rezultat[i].removeAttribute("hidden");
+        }
+    }
+</script>

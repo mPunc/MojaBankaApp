@@ -1,26 +1,19 @@
-﻿@model MojaBanka.Models.Transakcija
+﻿@model MojaBanka.Models.Kredit
 @using MojaBanka.Models
 
 @{
-    ViewBag.Title = "Moje Transakcije";
+    ViewBag.Title = "Krediti";
     Layout = "~/Views/Shared/_Layout.cshtml";
     Klijent klijent = ViewBag.Klijent;
     Racun racun = ViewBag.Racun;
 }
 
-<h2>Detalji</h2>
+<h2>Izbriši kredit</h2>
+
+<h4>Jeste li sigurni da želite obrisati kredit @Html.DisplayFor(model => model.Id_kredit)?</h4>
 <hr />
 <div>
-    <h4>Vaša transakcija</h4>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Iznos_transakcije)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Iznos_transakcije)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Id_racun)
         </dt>
@@ -30,26 +23,38 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Datum_transakcije)
+            @Html.DisplayNameFor(model => model.Iznos_kredita)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Datum_transakcije)
+            @Html.DisplayFor(model => model.Iznos_kredita)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Opis_transakcije)
+            @Html.DisplayNameFor(model => model.Kreditna_stopa)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Opis_transakcije)
+            @Html.DisplayFor(model => model.Kreditna_stopa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rok_otplate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rok_otplate)
+        </dd>
+
+        <dt>
+            Ukupno za otplatiti
+        </dt>
+
+        <dd>
+            @((Model.Iznos_kredita + Model.Iznos_kredita * Model.Kreditna_stopa * 0.01).ToString())
         </dd>
     </dl>
-    <p>
-        <span>
-            @Html.ActionLink("Natrag", "MojRacun", "Profil", new { id = racun.Id_racun }, new { @class = "btn btn-outline-dark" })
-        </span>
-    </p>
+
     <hr />
     <h4>Podaci računa i vlasnika</h4>
     <dl class="dl-horizontal">
@@ -109,4 +114,14 @@
             @Html.DisplayFor(model => klijent.Datum_klijent)
         </dd>
     </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbriši" class="btn btn-outline-danger" />
+            @Html.ActionLink("Natrag na listu", "Index", null, new { @class = "btn btn-outline-primary" })
+        </div>
+    }
 </div>

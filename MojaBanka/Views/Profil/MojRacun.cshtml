@@ -6,6 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     Klijent klijent = ViewBag.Klijent;
     List<Transakcija> transakcije = ViewBag.Transakcije;
+    List<Kredit> krediti = ViewBag.Krediti;
 }
 
 <h2>@ViewBag.Title @Html.DisplayFor(model => model.Id_racun)</h2>
@@ -87,6 +88,49 @@
     </dl>
 </div>
 <hr />
+@if (krediti.Count != 0)
+{
+    <h4>Krediti</h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => krediti.First().Iznos_kredita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => krediti.First().Kreditna_stopa)
+            </th>
+            <th>
+                Za otplatiti
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => krediti.First().Rok_otplate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in krediti)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(x => item.Iznos_kredita)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.Kreditna_stopa)
+                </td>
+                <td>
+                    @((item.Iznos_kredita + item.Iznos_kredita * item.Kreditna_stopa * 0.01).ToString()) €
+                </td>
+                <td>
+                    @Html.DisplayFor(x => item.Rok_otplate)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalji", "MojiKrediti", "Profil", new { id = item.Id_kredit }, new { @class = "btn btn-outline-dark" })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
 <h4>Transakcije</h4>
 <table class="table">
     <tr>
